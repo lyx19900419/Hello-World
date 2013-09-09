@@ -29,9 +29,9 @@ class Parser(HTMLParser.HTMLParser):
 
 class ftpParser(HTMLParser.HTMLParser):
 	def handle_starttag(self,tag,attrs):
-		if tag == 'img':
+		if tag == 'a':
 			for i in range(0,len(attrs)):
-				if attrs[i][0]=='src'  and attrs[i][1].startswith('http://'):
+				if attrs[i][0]=='href'  and attrs[i][1].startswith('ftp://'):
 					if attrs[i][1] not in ftptags:
 						print attrs[i][1]
 						ftptags.append(attrs[i][1])
